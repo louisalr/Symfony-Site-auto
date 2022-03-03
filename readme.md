@@ -1,0 +1,4 @@
+```bash
+symfony check:requirements
+```
+
