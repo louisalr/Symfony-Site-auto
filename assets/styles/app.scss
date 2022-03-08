@@ -1,17 +1,18 @@
 @import "~bootstrap/scss/bootstrap";
 
-.body-custom{
+footer {
+    display: flex;
+    justify-content: center;
+    padding: 5px;
+    background-color: #45a1ff;
+    color: #fff;
+}
+
+form{
     margin-left: 3rem;
     margin-right: 3rem;
 }
-.navbar-item-custom a{
-    color:black;
-}
 
-.footer-custom{
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-    background-color: #dfeaff;
-    padding-top: 1rem;
+.label_style{
+    margin-bottom: 3rem;
 }
