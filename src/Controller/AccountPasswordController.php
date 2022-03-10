@@ -2,6 +2,8 @@
 
 namespace App\Controller;
 
+use App\Form\ChangePasswordType;
+use Doctrine\ORM\EntityManagerInterface;
 use Doctrine\Persistence\ManagerRegistry;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -11,6 +13,7 @@ use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 
 class AccountPasswordController extends AbstractController
 {
+
     private $entityManager;
 
     public function __construct(EntityManagerInterface $entityManager){
@@ -46,11 +49,15 @@ class AccountPasswordController extends AbstractController
                 $this->entityManager->flush();
 
                 $notification = "Votre mot de passe a bien été mis à jour.";
-                $changed = true;
             }
             else{
                 $notification = "Votre mot de passe actuel n'est pas correct";
-                $changed = false;
             }
         }        
+
+        return $this->render('account/password.html.twig', [
+            'form' => $form->createView(),
+            'notification'=> $notification
+        ]);
+    }
 }
